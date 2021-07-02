@@ -8,7 +8,9 @@ use ApiPlatform\Core\DataProvider\ContextAwareCollectionDataProviderInterface;
 use ApiPlatform\Core\DataProvider\RestrictedDataProviderInterface;
 use App\DataProvider\Extension\CityCollectionExtensionInterface;
 use App\Entity\City;
+use App\Filter\CityFilter;
 use App\Repository\City\CityDataInterface;
+use App\Repository\City\CityDataRepository;
 
 final class CityCollectionDataProvider implements ContextAwareCollectionDataProviderInterface, RestrictedDataProviderInterface
 {
@@ -40,8 +42,21 @@ final class CityCollectionDataProvider implements ContextAwareCollectionDataProv
      */
     public function getCollection(string $resourceClass, string $operationName = null, array $context = []): iterable
     {
+        $cityFilterSearch = $context[CityFilter::CITY_FILTER_SEARCH_CONTEXT] ?? null;
+        $cityFilterOrder = $context[CityFilter::CITY_FILTER_ORDER_CONTEXT] ?? null;
+
         try {
-            $collection = $this->repository->getCities();
+            /** @var CityDataRepository $repository */
+            $repository = $this->repository;
+
+            if ($cityFilterSearch) {
+                $repository->setFilter($cityFilterSearch);
+            }
+            if ($cityFilterOrder) {
+                $repository->setOrder($cityFilterOrder);
+            }
+
+            $collection = $repository->getCities();
         } catch (\Exception $e) {
             throw new \RuntimeException(sprintf('Unable to retrieve cities from external source: %s', $e->getMessage()));
         }

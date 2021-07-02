@@ -24,7 +24,8 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
-    App\Repository\City\CityCachedDataRepository:
-        decorates: App\Repository\City\CityDataRepository
+    #commented to use filter
+    #App\Repository\City\CityCachedDataRepository:
+        #decorates: App\Repository\City\CityDataRepository
 
     App\Repository\City\CityDataInterface: '@App\Repository\City\CityDataRepository'

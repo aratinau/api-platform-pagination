@@ -6,6 +6,8 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiProperty;
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use App\Filter\CityFilter;
 
 /**
  * @ApiResource(
@@ -13,6 +15,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
  *          "get"
  *     }
  * )
+ * @ApiFilter(CityFilter::class, arguments={"throwOnInvalid"=false})
  */
 class City
 {
