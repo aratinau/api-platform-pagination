@@ -42,7 +42,7 @@ custom controller action from database using Paginator
 
 ## Third example use MovieCollectionDataProvider and repository
 
-On the normalization_context group `normalization-custom-action-using-dataprovider` the MovieCollectionDataProvider is called and the resust is from the repository. The param `isPublished` can be used and the result is sorted by the value (true or false) asked.
+On the normalization_context group `normalization-custom-action-using-dataprovider` the MovieCollectionDataProvider is called and the resust is from the repository. The param `isPublished=true|false` can be used and the result is filtered by the value asked.
 The param `order` can be `title` or `id` and ordered by `asc|desc`. The pagination is available
 
 ### Usage
