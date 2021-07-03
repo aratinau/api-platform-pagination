@@ -2,7 +2,7 @@
 
 Inspired from https://github.com/api-platform/demo
 
-There is tree examples in this repo
+There is four examples in this repo
 
 ## First Example use raw data from a csv file
 
@@ -51,6 +51,22 @@ The param `order` can be `title` or `id` and ordered by `asc|desc`. The paginati
 
 data provider using repository (by group from normalization_context on Movie entity)
 `api/movies/custom-action-using-dataprovider?page=2&order[title]=desc&isPublished=false`
+
+## Fourth example use QueryBuilder in CarCollectionDataProvider
+
+This example show how use queryBuilder in CarCollectionDataProvider and filter by color. The pagination is available 
+
+### Usage
+
+`/api/cars?color=color_name`
+
+#### Color name available
+
+- red
+- orange
+- green
+- yellow
+- black
 
 ## Install
 
