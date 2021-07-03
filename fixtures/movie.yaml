@@ -1,3 +1,4 @@
 App\Entity\Movie:
     movie_{1..1000}:
         title: <text(10, 700)>
+        isPublished: '<numberBetween(0, 1)>'
