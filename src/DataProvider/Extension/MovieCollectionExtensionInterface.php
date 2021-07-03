@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace App\DataProvider\Extension;
 
-use App\Entity\City;
+use App\Entity\Movie;
 
 interface MovieCollectionExtensionInterface
 {
     /**
      * Returns the final result object.
      *
-     * @param array<int, City>  $collection
+     * @param array<int, Movie>  $collection
      * @param array<string, mixed> $context
      *
-     * @return iterable<City>
+     * @return iterable<Movie>
      */
     public function getResult(array $collection, string $resourceClass, string $operationName = null, array $context = []): iterable;
 
