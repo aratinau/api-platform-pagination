@@ -1,4 +1,4 @@
-# Api Platform Sort, Filter and Pagination on raw data
+# Api Platform Sort, Filter and Pagination on custom data
 
 Inspired from https://github.com/api-platform/demo
 
