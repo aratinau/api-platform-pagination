@@ -10,6 +10,8 @@ Example using a custom `CityFilter` filtering on raw data from the file `Reposit
 
 CityFilter pass the `sort` and `order` params to the context and this context it's processed in the `CityCollectionDataProvider`
 
+The pagination is available
+
 ### Usage
 
 sort and filter on raw data from csv
