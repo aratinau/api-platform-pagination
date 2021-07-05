@@ -2,7 +2,7 @@
 
 Inspired from https://github.com/api-platform/demo
 
-There is six examples in this repo
+There is seven examples in this repo
 
 ## First Example use raw data from a csv file
 
@@ -85,6 +85,14 @@ Basic example showing how use and configure CollectionDataProvider
 ### Usage
 
 `api/furniture?page=2`
+
+## Seventh example use QueryBuilder in subresource
+
+DiscussionDataProvider show how use QueryBuilder and order by DESC the result
+
+### Usage
+
+`api/discussions/{id}/messages?page=1`
 
 ## Install
 

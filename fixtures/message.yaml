@@ -1,0 +1,4 @@
+App\Entity\Message:
+    message_{1..5000}:
+        content: <text(10, 700)>
+        discussion: '@discussion_*'

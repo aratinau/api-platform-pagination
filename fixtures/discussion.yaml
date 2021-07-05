@@ -1,0 +1,3 @@
+App\Entity\Discussion:
+    discussion_{1..100}:
+        name: <word(10, 700)>
