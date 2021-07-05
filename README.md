@@ -2,7 +2,7 @@
 
 Inspired from https://github.com/api-platform/demo
 
-There is four examples in this repo
+There is five examples in this repo
 
 ## First Example use raw data from a csv file
 
@@ -52,7 +52,7 @@ The param `order` can be `title` or `id` and ordered by `asc|desc`. The paginati
 data provider using repository (by group from normalization_context on Movie entity)
 `api/movies/custom-action-using-dataprovider?page=2&order[title]=desc&isPublished=false`
 
-## Fourth example use QueryBuilder in CarCollectionDataProvider
+## Fourth example use QueryBuilder in CarCollectionDataProvider (collectionExtensions)
 
 This example show how use QueryBuilder and filters with CollectionExtensions in CarCollectionDataProvider.
 The collection is filtered by color from the `context` with the QueryBuilder and filtered by `name` and `isPublished` from SearchFilter in Car entity.
@@ -70,7 +70,7 @@ The pagination is available
 - yellow
 - black
 
-## Fifth example use JobCollectionDataProvider
+## Fifth example use JobCollectionDataProvider (paginationExtension)
 
 This example show how use PaginationExtension in JobCollectionDataProvider
 
