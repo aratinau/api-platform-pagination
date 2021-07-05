@@ -29,3 +29,7 @@ services:
         #decorates: App\Repository\City\CityDataRepository
 
     App\Repository\City\CityDataInterface: '@App\Repository\City\CityDataRepository'
+
+    App\DataProvider\CarCollectionDataProvider:
+        bind:
+            $collectionExtensions: !tagged api_platform.doctrine.orm.query_extension.collection

@@ -2,7 +2,7 @@
 
 namespace App\DataProvider;
 
-use ApiPlatform\Core\Bridge\Doctrine\Orm\Extension\PaginationExtension;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Extension\FilterExtension;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Extension\QueryResultCollectionExtensionInterface;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Util\QueryNameGenerator;
 use ApiPlatform\Core\DataProvider\ContextAwareCollectionDataProviderInterface;
@@ -13,12 +13,14 @@ use Doctrine\Persistence\ManagerRegistry;
 final class CarCollectionDataProvider implements ContextAwareCollectionDataProviderInterface, RestrictedDataProviderInterface
 {
     private $managerRegistry;
-    private $paginationExtension;
+    private $collectionExtensions;
 
-    public function __construct(ManagerRegistry $managerRegistry, PaginationExtension $paginationExtension)
+    public function __construct(ManagerRegistry $managerRegistry,
+                                $collectionExtensions
+    )
     {
         $this->managerRegistry = $managerRegistry;
-        $this->paginationExtension = $paginationExtension;
+        $this->collectionExtensions = $collectionExtensions;
     }
 
     public function supports(string $resourceClass, string $operationName = null, array $context = []): bool
@@ -28,9 +30,11 @@ final class CarCollectionDataProvider implements ContextAwareCollectionDataProvi
 
     public function getCollection(string $resourceClass, string $operationName = null, array $context = []): iterable
     {
+        $queryNameGenerator = new QueryNameGenerator();
         $queryBuilder = $this->managerRegistry
             ->getManagerForClass($resourceClass)
-            ->getRepository($resourceClass)->createQueryBuilder('c');
+            ->getRepository($resourceClass)
+            ->createQueryBuilder('c');
 
         if (isset($context['filters']['color'])) {
             $queryBuilder
@@ -39,14 +43,16 @@ final class CarCollectionDataProvider implements ContextAwareCollectionDataProvi
             ;
         }
 
-        $this->paginationExtension->applyToCollection($queryBuilder, new QueryNameGenerator(), $resourceClass, $operationName, $context);
-
-        if ($this->paginationExtension instanceof QueryResultCollectionExtensionInterface &&
-            $this->paginationExtension->supportsResult($resourceClass, $operationName, $context)) {
-            return $this->paginationExtension->getResult($queryBuilder, $resourceClass, $operationName, $context);
+        /** @var FilterExtension $extension */
+        foreach ($this->collectionExtensions as $extension) {
+            $extension->applyToCollection($queryBuilder, $queryNameGenerator, $resourceClass, $operationName, $context);
+            if ($extension instanceof QueryResultCollectionExtensionInterface &&
+                $extension->supportsResult($resourceClass, $operationName, $context)
+            ) {
+                return $extension->getResult($queryBuilder, $resourceClass, $operationName, $context);
+            }
         }
 
         return $queryBuilder->getQuery()->getResult();
-
     }
 }

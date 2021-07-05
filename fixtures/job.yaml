@@ -1,0 +1,4 @@
+App\Entity\Job:
+    job_{1..1000}:
+        name: <word(10, 700)>
+        isPublished: '<numberBetween(0, 1)>'

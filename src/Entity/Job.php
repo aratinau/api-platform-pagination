@@ -3,20 +3,16 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
-use App\Repository\CarRepository;
+use App\Repository\JobRepository;
 use Doctrine\ORM\Mapping as ORM;
-use ApiPlatform\Core\Annotation\ApiFilter;
-use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 /**
- * @ApiResource()
- * @ApiFilter(SearchFilter::class, properties={
- *     "name": "exact",
- *     "isPublished": "exact"
- * })
- * @ORM\Entity(repositoryClass=CarRepository::class)
+ * @ApiResource(
+ *     attributes={"pagination_enabled"=true}
+ * )
+ * @ORM\Entity(repositoryClass=JobRepository::class)
  */
-class Car
+class Job
 {
     /**
      * @ORM\Id
@@ -31,11 +27,6 @@ class Car
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $color;
-
-    /**
      * @ORM\Column(type="boolean")
      */
     private $isPublished;
@@ -44,7 +35,6 @@ class Car
     {
         return $this->id;
     }
-
     public function getName(): ?string
     {
         return $this->name;
@@ -53,18 +43,6 @@ class Car
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getColor(): ?string
-    {
-        return $this->color;
-    }
-
-    public function setColor(string $color): self
-    {
-        $this->color = $color;
 
         return $this;
     }

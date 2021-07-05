@@ -54,11 +54,13 @@ data provider using repository (by group from normalization_context on Movie ent
 
 ## Fourth example use QueryBuilder in CarCollectionDataProvider
 
-This example show how use queryBuilder in CarCollectionDataProvider and filter by color. The pagination is available 
+This example show how use QueryBuilder and filters with CollectionExtensions in CarCollectionDataProvider.
+The collection is filtered by color from the `context` with the QueryBuilder and filtered by `name` and `isPublished` from SearchFilter in Car entity.
+The pagination is available
 
 ### Usage
 
-`/api/cars?color=color_name`
+`/api/cars?color=color_name&isPublished=true|false&page=1`
 
 #### Color name available
 
@@ -67,6 +69,10 @@ This example show how use queryBuilder in CarCollectionDataProvider and filter b
 - green
 - yellow
 - black
+
+## Fifth example use JobCollectionDataProvider
+
+This example show how use PaginationExtension in JobCollectionDataProvider
 
 ## Install
 

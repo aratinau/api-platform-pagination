@@ -1,4 +1,5 @@
 App\Entity\Car:
-    movie_{1..1000}:
+    car_{1..1000}:
         name: <word(10, 700)>
         color: '<randomElement( ["red", "orange", "green", "yellow", "black"] )>'
+        isPublished: '<numberBetween(0, 1)>'
