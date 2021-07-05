@@ -33,3 +33,7 @@ services:
     App\DataProvider\CarCollectionDataProvider:
         bind:
             $collectionExtensions: !tagged api_platform.doctrine.orm.query_extension.collection
+
+    App\DataProvider\FurnitureDataProvider:
+        bind:
+            $collectionDataProvider: '@api_platform.doctrine.orm.default.collection_data_provider'

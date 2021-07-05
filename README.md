@@ -2,7 +2,7 @@
 
 Inspired from https://github.com/api-platform/demo
 
-There is five examples in this repo
+There is six examples in this repo
 
 ## First Example use raw data from a csv file
 
@@ -73,6 +73,18 @@ The pagination is available
 ## Fifth example use JobCollectionDataProvider (paginationExtension)
 
 This example show how use PaginationExtension in JobCollectionDataProvider
+
+### Usage
+
+`api/jobs?page=1`
+
+## Sixth example use FurnitureDataProvider (collectionDataProvider)
+
+Basic example showing how use and configure CollectionDataProvider
+
+### Usage
+
+`api/furniture?page=2`
 
 ## Install
 
