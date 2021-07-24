@@ -5,14 +5,14 @@ Inspired by https://github.com/api-platform/demo
 # Summary
 
 - [First Example use raw data from a csv file](#first-example-use-raw-data-from-a-csv-file)
-- [Second example use custom controller] https://github.com/aratinau/api-platform-pagination#second-example-use-custom-controller
-- [Third example use MovieCollectionDataProvider and repository] https://github.com/aratinau/api-platform-pagination#third-example-use-MovieCollectionDataProvider-and-repository
-- [Fourth example use QueryBuilder in CarCollectionDataProvider (collectionExtensions)] https://github.com/aratinau/api-platform-pagination#fourth-example-use-querybuilder-in-carcollectiondataprovider-collectionextensions
-- [Fifth example use JobCollectionDataProvider (paginationExtension)] https://github.com/aratinau/api-platform-pagination#fifth-example-use-JobCollectionDataProvider-(paginationExtension)
-- [Sixth example use FurnitureDataProvider (collectionDataProvider)] https://github.com/aratinau/api-platform-pagination#sixth-example-use-FurnitureDataProvider-(collectionDataProvider)
-- [Seventh example use QueryBuilder in subresource] 
-- [Eight example use QueryBuilder in subresource] https://github.com/aratinau/api-platform-pagination#eight-example-use-QueryBuilder-in-subresource
-- [Ninth use custom subresource with provider (without subresourceDataProvider)] https://github.com/aratinau/api-platform-pagination#ninth-example---custom-subresource-with-provider-(without-subresourceDataProvider)
+- [Second example use custom controller](#second-example-use-custom-controller)
+- [Third example use MovieCollectionDataProvider and repository](#third-example-use-moviecollectiondataprovider-and-repository)
+- [Fourth example use QueryBuilder in CarCollectionDataProvider (collectionExtensions)](#fourth-example-use-querybuilder-in-carcollectiondataprovider-collectionextensions)
+- [Fifth example use JobCollectionDataProvider (paginationExtension)](#fifth-example-use-jobcollectiondataprovider-paginationextension)
+- [Sixth example use FurnitureDataProvider (collectionDataProvider)](#sixth-example-use-furnituredataprovider-collectiondataprovider)
+- [Seventh example use QueryBuilder in subresource](#seventh-example--simple-dataprovider-using-subresourcedataprovider)
+- [Eight example use QueryBuilder in subresource](#eight-example-use-querybuilder-in-subresource)
+- [Ninth use custom subresource with provider (without subresourceDataProvider)](#ninth-example-custom-subresource-with-provider-without-subresourceDataProvider)
 
 
 ## First Example use raw data from a csv file
@@ -113,7 +113,7 @@ DiscussionSubresourceDataProvider show how use QueryBuilder and order by DESC th
 
 `api/discussions/{id}/messages?page=1`
 
-    ## Ninth example - custom subresource with provider (without subresourceDataProvider)
+## Ninth example - custom subresource with provider (without subresourceDataProvider)
 
 With JobDataProvider and path `jobs/{id}/employees` return employees from id's job
 
