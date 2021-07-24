@@ -1,8 +1,18 @@
 # Api Platform Sort, Filter and Pagination on custom data
 
-Inspired from https://github.com/api-platform/demo
+Inspired by https://github.com/api-platform/demo
 
-There is seven examples in this repo
+# Summary
+
+- [First Example use raw data from a csv file] https://github.com/aratinau/api-platform-pagination#first-example-use-raw-data-from-a-csv-file
+- [Second example use custom controller] https://github.com/aratinau/api-platform-pagination#second-example-use-custom-controller
+- [Third example use MovieCollectionDataProvider and repository] https://github.com/aratinau/api-platform-pagination#third-example-use-MovieCollectionDataProvider-and-repository
+- [Fourth example use QueryBuilder in CarCollectionDataProvider (collectionExtensions)] https://github.com/aratinau/api-platform-pagination#fourth-example-use-QueryBuilder-in-CarCollectionDataProvider-(collectionExtensions)
+- [Fifth example use JobCollectionDataProvider (paginationExtension)] https://github.com/aratinau/api-platform-pagination#fifth-example-use-JobCollectionDataProvider-(paginationExtension)
+- [Sixth example use FurnitureDataProvider (collectionDataProvider)] https://github.com/aratinau/api-platform-pagination#sixth-example-use-FurnitureDataProvider-(collectionDataProvider)
+- [Seventh example use QueryBuilder in subresource] 
+- [Eight example use QueryBuilder in subresource] https://github.com/aratinau/api-platform-pagination#eight-example-use-QueryBuilder-in-subresource
+
 
 ## First Example use raw data from a csv file
 
@@ -86,9 +96,15 @@ Basic example showing how use and configure CollectionDataProvider
 
 `api/furniture?page=2`
 
-## Seventh example use QueryBuilder in subresource
+## Seventh example : simple DataProvider using subresourceDataProvider
 
-DiscussionDataProvider show how use QueryBuilder and order by DESC the result
+CommentSubresourceDataProvider show how use the standard behaviour 
+
+`api/movies/{id}/comments`
+
+## Eight example use QueryBuilder in subresource
+
+DiscussionSubresourceDataProvider show how use QueryBuilder and order by DESC the result
 
 ### Usage
 

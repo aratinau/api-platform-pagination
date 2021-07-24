@@ -10,7 +10,7 @@ use ApiPlatform\Core\DataProvider\SubresourceDataProviderInterface;
 use App\Entity\Message;
 use Doctrine\Persistence\ManagerRegistry;
 
-class DiscussionDataProvider implements SubresourceDataProviderInterface, RestrictedDataProviderInterface
+class DiscussionSubresourceDataProvider implements SubresourceDataProviderInterface, RestrictedDataProviderInterface
 {
     private $managerRegistry;
 
@@ -29,8 +29,6 @@ class DiscussionDataProvider implements SubresourceDataProviderInterface, Restri
 
     public function getSubresource(string $resourceClass, array $identifiers, array $context, string $operationName = null)
     {
-        // $this->subresourceDataProvider->getSubresource($resourceClass, $identifiers, $context,  $operationName);
-
         $queryBuilder = $this->managerRegistry
             ->getManagerForClass($resourceClass)
             ->getRepository($resourceClass)
