@@ -1,0 +1,3 @@
+App\Entity\Employee:
+    employee_{1..1000}:
+        author: <name()>

@@ -12,6 +12,7 @@ Inspired by https://github.com/api-platform/demo
 - [Sixth example use FurnitureDataProvider (collectionDataProvider)] https://github.com/aratinau/api-platform-pagination#sixth-example-use-FurnitureDataProvider-(collectionDataProvider)
 - [Seventh example use QueryBuilder in subresource] 
 - [Eight example use QueryBuilder in subresource] https://github.com/aratinau/api-platform-pagination#eight-example-use-QueryBuilder-in-subresource
+- [Ninth use custom subresource with provider (without subresourceDataProvider)] https://github.com/aratinau/api-platform-pagination#ninth-example---custom-subresource-with-provider-(without-subresourceDataProvider)
 
 
 ## First Example use raw data from a csv file
@@ -98,7 +99,9 @@ Basic example showing how use and configure CollectionDataProvider
 
 ## Seventh example : simple DataProvider using subresourceDataProvider
 
-CommentSubresourceDataProvider show how use the standard behaviour 
+CommentSubresourceDataProvider show how use the standard behaviour
+
+### Usage
 
 `api/movies/{id}/comments`
 
@@ -109,6 +112,16 @@ DiscussionSubresourceDataProvider show how use QueryBuilder and order by DESC th
 ### Usage
 
 `api/discussions/{id}/messages?page=1`
+
+## Ninth example - custom subresource with provider (without subresourceDataProvider)
+
+With JobDataProvider and path `jobs/{id}/employees` return employees from id's job
+
+[ ] TODO Pagination
+
+### Usage
+
+`api/jobs/{id}/employees`
 
 ## Install
 

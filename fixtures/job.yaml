@@ -1,4 +1,5 @@
 App\Entity\Job:
-    job_{1..1000}:
+    job_{1..100}:
         name: <word(10, 700)>
         isPublished: '<numberBetween(0, 1)>'
+        employees: '<numberBetween(100, 200)>x @employee*'
