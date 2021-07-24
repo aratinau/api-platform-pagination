@@ -12,7 +12,7 @@ Inspired by https://github.com/api-platform/demo
 - [Sixth example use FurnitureDataProvider (collectionDataProvider)](#sixth-example-use-furnituredataprovider-collectiondataprovider)
 - [Seventh example use QueryBuilder in subresource](#seventh-example--simple-dataprovider-using-subresourcedataprovider)
 - [Eight example use QueryBuilder in subresource](#eight-example-use-querybuilder-in-subresource)
-- [Ninth use custom subresource with provider (without subresourceDataProvider)](#ninth-example-custom-subresource-with-provider-without-subresourceDataProvider)
+- [Ninth use custom subresource with provider (without subresourceDataProvider)](#ninth-example---custom-subresource-with-provider-without-subresourcedataprovider)
 
 
 ## First Example use raw data from a csv file
