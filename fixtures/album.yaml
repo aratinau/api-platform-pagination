@@ -1,0 +1,5 @@
+App\Entity\Album:
+    album_{1..1000}:
+        title: <word()>
+        year: '<randomElement( [1999, 2000, 2004, 2011, 2016] )>'
+        artist: '@artist*'

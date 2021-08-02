@@ -11,7 +11,7 @@ Inspired by https://github.com/api-platform/demo
 - [Fifth example use JobCollectionDataProvider (paginationExtension)](#fifth-example-use-jobcollectiondataprovider-paginationextension)
 - [Sixth example use FurnitureDataProvider (collectionDataProvider)](#sixth-example-use-furnituredataprovider-collectiondataprovider)
 - [Seventh example use QueryBuilder in subresource](#seventh-example--simple-dataprovider-using-subresourcedataprovider)
-- [Eight example use QueryBuilder in subresource](#eight-example-use-querybuilder-in-subresource)
+- [Eighth example use QueryBuilder in subresource](#eight-example-use-querybuilder-in-subresource)
 - [Ninth use custom subresource with provider (without subresourceDataProvider)](#ninth-example---custom-subresource-with-provider-without-subresourcedataprovider)
 
 
@@ -105,7 +105,7 @@ CommentSubresourceDataProvider show how use the standard behaviour
 
 `api/movies/{id}/comments`
 
-## Eight example use QueryBuilder in subresource
+## Eighth example use QueryBuilder in subresource
 
 DiscussionSubresourceDataProvider show how use QueryBuilder and order by DESC the result
 
@@ -121,7 +121,19 @@ With JobDataProvider and path `jobs/{id}/employees` return employees from id's j
 
 ### Usage
 
-`api/jobs/{id}/employees`
+`api/jobs/{id}/employees/{arg1}`
+
+## Tenth example - Custom Paginator in Provider with QueryBuilder
+
+PostCollectionDataProvider call the method findLatest from PostRepository and PostRepository call PostPaginator
+
+### Usage
+
+`/api/posts?page=2`
+
+## Notes
+
+`Album` and `Artist` are ready to be used
 
 ## Install
 

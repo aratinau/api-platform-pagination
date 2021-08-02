@@ -1,0 +1,7 @@
+App\Entity\Post:
+    post_{1..100}:
+        title: <word(10, 700)>
+        slug: <word(10, 700)>
+        summary: <word(10, 700)>
+        content: <word(10, 700)>
+        publishedAt: '<dateTimeBetween("-100 days", "100 days")>'

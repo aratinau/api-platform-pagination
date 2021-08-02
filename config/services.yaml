@@ -38,6 +38,6 @@ services:
         bind:
             $collectionDataProvider: '@api_platform.doctrine.orm.default.collection_data_provider'
 
-    App\DataProvider\JobDataProvider:
+    App\DataProvider\JobEmployeeDataProvider:
         bind:
             $itemDataProvider: '@api_platform.doctrine.orm.default.item_data_provider'
