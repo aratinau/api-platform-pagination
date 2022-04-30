@@ -14,6 +14,20 @@ Inspired by https://github.com/api-platform/demo
 - [Eighth example use QueryBuilder in subresource](#eight-example-use-querybuilder-in-subresource)
 - [Ninth use custom subresource with provider (without subresourceDataProvider)](#ninth-example---custom-subresource-with-provider-without-subresourcedataprovider)
 
+## Install
+
+Build the project `make build`
+
+Start the project `make start`
+
+Enter the php container with `make sh`
+
+Install dependencies (in php container) with `composer install`
+
+Load fixtures with `make init-fixtures`
+
+You can go to `http://127.0.0.1:8000/api/`
+
 
 ## First Example use raw data from a csv file
 
@@ -134,17 +148,3 @@ PostCollectionDataProvider call the method findLatest from PostRepository and Po
 ## Notes
 
 `Album` and `Artist` are ready to be used
-
-## Install
-
-    composer install
-
-    php bin/console doctrine:schema:update --env=dev --dump-sql
-
-    php bin/console doctrine:schema:update --env=dev --force
-
-    php bin/console hautelook:fixtures:load 
-
-## Launch
-
-    symfony serve --no-tls

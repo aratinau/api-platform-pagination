@@ -1,0 +1,40 @@
+version: '3.7'
+services:
+    php:
+        build: docker/php
+        #depends_on:
+            #- database
+        restart: unless-stopped
+        volumes:
+            - .:/srv/api:rw
+            - ./docker/php/conf.d/api-platform.dev.ini/:/usr/local/etc/php/conf.d/api-platform.ini
+            - ./var:/srv/api/var:rw
+        environment:
+            APP_ENV: dev
+
+    nginx:
+        build: docker/nginx
+        depends_on:
+            - php
+        volumes:
+            - ./public:/srv/api/public:ro
+            # next line file default.dev.conf is used
+            - ./docker/nginx/conf.d/default.dev.conf:/etc/nginx/conf.d/default.conf
+        ports:
+            - "8000:80"
+
+    database:
+        image: 'postgres:alpine'
+        environment:
+            POSTGRES_PASSWORD: main
+            POSTGRES_USER: main
+            POSTGRES_DB: api-platform-pagination
+        ports:
+            # To allow the host machine to access the ports below, modify the lines below.
+            # For example, to allow the host to connect to port 3306 on the container, you would change
+            # "3306" to "3306:3306". Where the first port is exposed to the host and the second is the container port.
+            # See https://docs.docker.com/compose/compose-file/#ports for more information.
+            - '5432'
+
+#volumes:
+    #db_data:
