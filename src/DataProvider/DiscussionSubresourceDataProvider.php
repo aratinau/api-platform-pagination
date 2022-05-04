@@ -2,7 +2,7 @@
 
 namespace App\DataProvider;
 
-use ApiPlatform\Core\Bridge\Doctrine\Orm\Extension\PaginationExtension;
+use ApiPlatform\Doctrine\Orm\Extension\PaginationExtension;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Extension\QueryResultCollectionExtensionInterface;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Util\QueryNameGenerator;
 use ApiPlatform\Core\DataProvider\RestrictedDataProviderInterface;
@@ -16,8 +16,10 @@ class DiscussionSubresourceDataProvider implements SubresourceDataProviderInterf
 
     private $paginationExtension;
 
-    public function __construct(ManagerRegistry $managerRegistry, PaginationExtension $paginationExtension)
-    {
+    public function __construct(
+        ManagerRegistry $managerRegistry,
+        PaginationExtension $paginationExtension
+    ) {
         $this->managerRegistry = $managerRegistry;
         $this->paginationExtension = $paginationExtension;
     }

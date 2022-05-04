@@ -10,20 +10,19 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource(
- *     attributes={"pagination_enabled"=true},
- *     itemOperations={
- *          "get",
- *          "custom-subresource-job-employees"={
- *              "method"="GET",
- *              "deserialize"=false,
- *              "path"="/jobs/{id}/employees",
- *              "normalization_context"={"groups" = "normalization-custom-subresource-job-employees"}
- *          }
- *      }
- * )
  * @ORM\Entity(repositoryClass=JobRepository::class)
  */
+#[ApiResource(
+    itemOperations: [
+        'get',
+        'custom-subresource-job-employees' => [
+            'method' => 'GET',
+            'deserialize' => false,
+            'path' => '/jobs/{id}/employees',
+        ],
+    ],
+    attributes: ['pagination_enabled' => true]
+)]
 class Job
 {
     /**
