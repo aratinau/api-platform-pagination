@@ -222,15 +222,19 @@ Then we create a `BookExtension` and add this condition to return book by locale
 ->setParameter('locale', self::LOCALE)
 ```
 
-Then we can loop over all the extensions on `$collectionExtensions` (we defined $collectionExtensions on `services.yaml`) so it apply to all extensions.
+Then in `BookCollectionDataProvider` we can loop over all the extensions on `$collectionExtensions` (we defined $collectionExtensions on `services.yaml`) so it apply to all extensions.
 
 Extensions called are (in this order): 
 
-- "App\Doctrine\BookExtension"
-- "ApiPlatform\Doctrine\Orm\Extension\FilterExtension"
-- "ApiPlatform\Doctrine\Orm\Extension\FilterEagerLoadingExtension"
-- "ApiPlatform\Doctrine\Orm\Extension\EagerLoadingExtension"
-- "ApiPlatform\Doctrine\Orm\Extension\OrderExtension"
-- "ApiPlatform\Doctrine\Orm\Extension\PaginationExtension"
+- `"App\Doctrine\BookExtension"`
+- `"ApiPlatform\Doctrine\Orm\Extension\FilterExtension"`
+- `"ApiPlatform\Doctrine\Orm\Extension\FilterEagerLoadingExtension"`
+- `"ApiPlatform\Doctrine\Orm\Extension\EagerLoadingExtension"`
+- `"ApiPlatform\Doctrine\Orm\Extension\OrderExtension"`
+- `"ApiPlatform\Doctrine\Orm\Extension\PaginationExtension"`
 
 Now you can still use the `SortOrder` on the `Book` entity for example, and add the param `isArchived` and the result will be pass through the DoctrineExtension to set the locale.
+
+###### Commits related
+
+- https://github.com/aratinau/api-platform-pagination/commit/1d27f16adecda1c0956fcc5d0da81f017d915c1b
