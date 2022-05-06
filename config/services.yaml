@@ -41,3 +41,7 @@ services:
     App\DataProvider\JobEmployeeDataProvider:
         bind:
             $itemDataProvider: '@api_platform.doctrine.orm.default.item_data_provider'
+
+    App\DataProvider\BookCollectionDataProvider:
+        bind:
+            $collectionExtensions: !tagged api_platform.doctrine.orm.query_extension.collection

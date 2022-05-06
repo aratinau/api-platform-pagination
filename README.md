@@ -14,6 +14,7 @@ Inspired by https://github.com/api-platform/demo
 - [Eighth example use QueryBuilder in subresource](#eighth-example-use-querybuilder-in-subresource)
 - [Ninth use custom subresource with provider (without subresourceDataProvider)](#ninth-example---custom-subresource-with-provider-without-subresourcedataprovider)
 - [Tenth example - Custom Paginator in Provider with QueryBuilder](#tenth-example---custom-paginator-in-provider-with-querybuilder)
+- [🚀How to create a Collection Data Provider and keep Filters and Doctrine Extension on it](#how-to-create-a-Collection-data-provider-and-keep-filters-and-doctrine-extension-on-it)
 
 ## Install
 
@@ -191,3 +192,45 @@ PostCollectionDataProvider call the method findLatest from PostRepository and Po
 ## Notes
 
 `Album` and `Artist` are ready to be used
+
+## How to create a Collection Data Provider and keep Filters and Doctrine Extension on it
+
+We're going to create a Provider who will return only books not archived when the param `includeArchived` is missing. 
+It will return the books by the locale corresponding in a Doctrine Extension
+
+### Usage
+`/api/books` or `/api/books?includeArchived=false` return only books not archived
+
+`/api/books?includeArchived=true` return all books (archived or not)
+
+### Quick explanation
+
+In our `BookCollectionDataProvider` we have this condition:
+
+```php
+$includeArchived = $context['filters']['includeArchived'] ?? 'false';
+// ...
+if ($includeArchived === 'false') {
+    $queryBuilder->andWhere("$alias.isArchived = false");
+}
+```
+
+Then we create a `BookExtension` and add this condition to return book by locale defined.
+
+```php
+->andWhere("$rootAlias.locale = :locale")
+->setParameter('locale', self::LOCALE)
+```
+
+Then we can loop over all the extensions on `$collectionExtensions` (we defined $collectionExtensions on `services.yaml`) so it apply to all extensions.
+
+Extensions called are (in this order): 
+
+- "App\Doctrine\BookExtension"
+- "ApiPlatform\Doctrine\Orm\Extension\FilterExtension"
+- "ApiPlatform\Doctrine\Orm\Extension\FilterEagerLoadingExtension"
+- "ApiPlatform\Doctrine\Orm\Extension\EagerLoadingExtension"
+- "ApiPlatform\Doctrine\Orm\Extension\OrderExtension"
+- "ApiPlatform\Doctrine\Orm\Extension\PaginationExtension"
+
+Now you can still use the `SortOrder` on the `Book` entity for example, and add the param `isArchived` and the result will be pass through the DoctrineExtension to set the locale.
