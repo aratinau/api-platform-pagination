@@ -11,8 +11,9 @@ Inspired by https://github.com/api-platform/demo
 - [Fifth example use JobCollectionDataProvider (paginationExtension)](#fifth-example-use-jobcollectiondataprovider-paginationextension)
 - [Sixth example use FurnitureDataProvider (collectionDataProvider)](#sixth-example-use-furnituredataprovider-collectiondataprovider)
 - [Seventh example use QueryBuilder in subresource](#seventh-example--simple-dataprovider-using-subresourcedataprovider)
-- [Eighth example use QueryBuilder in subresource](#eight-example-use-querybuilder-in-subresource)
+- [Eighth example use QueryBuilder in subresource](#eighth-example-use-querybuilder-in-subresource)
 - [Ninth use custom subresource with provider (without subresourceDataProvider)](#ninth-example---custom-subresource-with-provider-without-subresourcedataprovider)
+- [Tenth example - Custom Paginator in Provider with QueryBuilder](#tenth-example---custom-paginator-in-provider-with-querybuilder)
 
 ## Install
 
