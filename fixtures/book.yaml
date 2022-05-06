@@ -1,0 +1,5 @@
+App\Entity\Book:
+    book_{1..200}:
+        title: <sentence()>
+        isArchived: '<randomElement([0,1])>'
+        locale: <randomElement(['fr', 'en'])>

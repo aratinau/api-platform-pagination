@@ -7,7 +7,7 @@
         "php": ">=8.0",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "api-platform/core": "v2.7.0-alpha.2",
+        "api-platform/core": "v2.6",
         "composer/package-versions-deprecated": "1.11.99.2",
         "doctrine/annotations": "^1.13",
         "doctrine/doctrine-bundle": "^2.4",
