@@ -14,7 +14,7 @@ Inspired by https://github.com/api-platform/demo
 - [Eighth example use QueryBuilder in subresource](#eighth-example-use-querybuilder-in-subresource)
 - [Ninth use custom subresource with provider (without subresourceDataProvider)](#ninth-example---custom-subresource-with-provider-without-subresourcedataprovider)
 - [Tenth example - Custom Paginator in Provider with QueryBuilder](#tenth-example---custom-paginator-in-provider-with-querybuilder)
-- [🚀How to create a Collection Data Provider and keep Filters and Doctrine Extension on it](#how-to-create-a-Collection-data-provider-and-keep-filters-and-doctrine-extension-on-it)
+- [🚀How to create a Collection Data Provider and keep Doctrine Extension, Filters and Pagination on it](#how-to-create-a-collection-data-provider-and-keep-doctrine-extension-filters-and-pagination-on-it)
 
 ## Install
 
@@ -193,7 +193,7 @@ PostCollectionDataProvider call the method findLatest from PostRepository and Po
 
 `Album` and `Artist` are ready to be used
 
-## How to create a Collection Data Provider and keep Filters and Doctrine Extension on it
+## How to create a Collection Data Provider and keep Doctrine Extension, Filters and Pagination on it
 
 We're going to create a Provider who will return only books not archived when the param `includeArchived` is missing. 
 It will return the books by the locale corresponding in a Doctrine Extension
